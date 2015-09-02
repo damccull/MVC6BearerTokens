@@ -85,6 +85,17 @@ namespace MVC6BearerToken {
                     bearer.TokenValidationParameters.IssuerSigningKey = key;
                     bearer.TokenValidationParameters.ValidAudience = "mybearertokenapi";
                     bearer.TokenValidationParameters.ValidIssuer = "mybearertokenapi";
+                    bearer.Notifications.AuthenticationFailed = async notification => {
+                        if(notification.Exception.GetType() == typeof(SecurityTokenExpiredException)) {
+                            //TODO: Figure out how to actually send a body. Just getting a 0-length 401 right now.
+                            var message = "Access token expired.";
+                            notification.HttpContext.Response.StatusCode = 401;
+                            //notification.HttpContext.Response.ContentLength = message.Length * 2;
+                            notification.HttpContext.Response.ContentType = "application/json; charset=utf-8";
+                            await notification.HttpContext.Response.WriteAsync(message);
+
+                        }
+                    };
                 });
             }
 
