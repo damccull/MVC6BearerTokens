@@ -72,6 +72,11 @@ namespace MVC6BearerToken.Api.v1 {
                     //No refresh token mean's it's invalid or revoked
                     return new HttpUnauthorizedResult();
                 }
+
+                if(existingRefreshToken.ClientId != model.ClientId) {
+                    return new HttpUnauthorizedResult();
+                }
+
                 identity = await authRepo.GetClaimsIdentityByNameAsync(existingRefreshToken.Subject);
                 await authRepo.RemoveRefreshTokenAsync(existingRefreshToken);
 
