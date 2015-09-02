@@ -1,0 +1,14 @@
+{
+  "AppName": "MVC6BearerToken",
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-MVC6BearerToken;Trusted_Connection=True;MultipleActiveResultSets=true"
+    },
+    "EntityFramework": {
+      "ApplicationDbContext": {
+        "ConnectionStringKey": "Data:DefaultConnection:ConnectionString"
+      }
+    }
+  },
+  "rsa-key": ""
+}

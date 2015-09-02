@@ -1,0 +1,41 @@
+{
+  "webroot": "wwwroot",
+  "userSecretsId": "aspnet5-MVC6BearerToken-aaaba5cc-f499-4395-a8af-2f0101fb54f5",
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Microsoft.AspNet.Mvc": "6.0.0-beta6",
+    "Microsoft.AspNet.Server.IIS": "1.0.0-beta6",
+    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta6",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-beta6",
+    "Microsoft.AspNet.Authentication.OAuthBearer": "1.0.0-beta6",
+    "Microsoft.AspNet.Identity": "3.0.0-beta6",
+    "EntityFramework.Commands": "7.0.0-beta6",
+    "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-beta6",
+    "Microsoft.Framework.Configuration.Json": "1.0.0-beta6",
+    "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta6"
+  },
+
+  "commands": {
+    "web": "Microsoft.AspNet.Hosting --config hosting.ini",
+    "ef": "EntityFramework.Commands"
+  },
+
+  "frameworks": {
+    "dnx451": { },
+    "dnxcore50": { }
+  },
+
+  "exclude": [
+    "wwwroot",
+    "node_modules",
+    "bower_components"
+  ],
+  "publishExclude": [
+    "node_modules",
+    "bower_components",
+    "**.xproj",
+    "**.user",
+    "**.vspscc"
+  ]
+}

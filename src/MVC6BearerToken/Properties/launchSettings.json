@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/values",
+      "environmentVariables": {
+        "ASPNET_ENV": "Development",
+        "rsa-key": "your key json goes here"
+      }
+    }
+  }
+}
