@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
-using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Security.Cryptography;
 
-namespace RsaGenerator {
-    class Program {
-        static void Main(string[] args) {
-            //Console.WriteLine(GenerateRsaKeys());
-            //Console.ReadKey();
-            Trace.WriteLine(GenerateRsaKeys(),"RSA-KEY");
+namespace RsaGen
+{
+    public class Program
+    {
+        public void Main(string[] args)
+        {
+            Console.WriteLine($"{GenerateRsaKeys()}");
+            //Console.Read();
         }
+
         private static string GenerateRsaKeys() {
             RSACryptoServiceProvider myRSA = new RSACryptoServiceProvider(2048);
             var publicKey = new RSAParametersSerializable(myRSA.ExportParameters(true));
