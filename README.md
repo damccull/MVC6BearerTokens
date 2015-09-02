@@ -15,24 +15,21 @@ It's built on Beta 6, so be aware that as new versions come out, this project ma
 Load the project in Visual Studio 2015 with MVC6 beta 6 and dnx beta 6 installed.
 
 ##### Step 2
-Set the RsaGenerator project as the startup project.
+Open either Powershell or the Package Manager Console (in Visual Studio) and change directory to the MVC6BearerTokens/src/RsaGen folder.
 
 ##### Step 3
-Click the play button.
+Type `dnx . rsagen > key.txt`.
 
 ##### Step 4
-Look in the 'Output' window for a line beginning with 'RSA-KEY:' and copy the json that comes after it.
+Open key.txt in a text editor and copy the entire file.
 
 ##### Step 5
 Open the project properties file and click the 'Debug' tab on the left. Create a new Environment Variable called 'rsa-key' and paste the json into its value. Save the properties file.
 
 ##### Step 6
-Set the MVC6BearerToken project as the startup project.
-
-##### Step 7
 Run the project.
 
-##### Step 8
+##### Step 7
 Using Fiddler or a similar tool, send a POST request to http://localhost:&lt;port&gt;/api/v1/account/register with the following:
 
 ```
@@ -52,7 +49,7 @@ Content-Type: application/json; charset=utf-8
 
 You should receive a 201 Created response with a 'location' to '/token'.
 
-##### Step 9
+##### Step 8
 Issue another POST request to http://localhost:&lt;port&gt;/api/v1/account/token with the following:
 
 ```
@@ -88,7 +85,7 @@ Content-Length: 915
 This response contains your refresh token, an access token,
 and some other metadata that could be useful to your app.
 
-##### Step 10
+##### Step 9
 Copy the refreshToken from the previous response to your clipboard. You'll need it for this part.
 
 Note: In this example the refresh tokens only stay valid for 5 minutes, but you can change that in the code. It's hard coded in the AccountController's Token action.
